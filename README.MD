@@ -1,4 +1,4 @@
-# DevsNotes API
+# DevsNotes API - PHP Estrutural
 
 ## O que é?
 
@@ -34,13 +34,13 @@ Para simplificar, a quantidade de endpoints será basicamente a mesma quantidade
 
 Seguiremos esta estrutura:
 
-> (Metodo) /url (Parâmetros)
+> (Metodo) /url/arquivo.php?parametros
 
-- (GET) /api/notes (Listar as anotações)
+- (GET) /api/getall.php (Listar as anotações)
 
-- (GET) /api/note/123 (Ver o conteúdo de uma anotação específica)
-- (POST) /api/note (title, body) (Criar uma nova anotação)
-- (PUT) /api/123 (title, body) (Atualizar uma anotação)
-- (DELETE) /api/123 (Deletar uma anotação)
+- (GET) /api/get.php?id=123 (Ver o conteúdo de uma anotação específica)
+- (POST) /api/insert.php (title, body) (Criar uma nova anotação)
+- (PUT) /api/update.php (title, body) (Atualizar uma anotação)
+- (DELETE) /api/delete.php (Deletar uma anotação)
 
 A partir dessas informações, que iremos seguir para construir nosso banco de dados, etc... A API como um todo.
