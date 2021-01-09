@@ -6,5 +6,5 @@ $responseArray['response'] = [
     'pong' => true
 ];
 
-require '../headers.php';
-require '../response.php';
+require '../includes/headers.php';
+require '../includes/response.php';

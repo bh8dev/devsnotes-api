@@ -11,7 +11,7 @@ $databaseOptions     = [
 ];
 
 $responseArray = [
-    'error' => '',
+    'errors' => [],
     'response' => []
 ];
 
