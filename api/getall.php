@@ -8,11 +8,11 @@ $notes     = [];
 if ($method === 'get')
 {
     $sql    = 'SELECT * FROM notes';
-    $notesReturned = $pdo->query($sql);
+    $query = $pdo->query($sql);
 
-    if ($notesReturned->rowCount() > 0)
+    if ($query->rowCount() > 0)
     {
-        $notes = $notesReturned->fetchAll();
+        $notes = $query->fetchAll();
 
         foreach ($notes as $note)
         {
@@ -26,7 +26,7 @@ if ($method === 'get')
 }
 else
 {
-    $responseArray['errors'] = 'Método não permitido! Métodos aceitos: GET';
+    $responseArray['errors'] = 'Método não permitido! Métodos permitidos: GET';
 }
 
 require '../includes/headers.php';
