@@ -23,5 +23,5 @@ try
 catch (PDOException $exception)
 {
     throw new Exception('Database error:', $exception->getCode());
-    exit;
+    exit();
 }

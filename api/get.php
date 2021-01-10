@@ -1,11 +1,12 @@
 <?php
 
 require '../config.php';
+require '../http.php';
 
 $method    = strtolower($_SERVER['REQUEST_METHOD']);
 $note      = [];
 
-if ($method === 'get')
+if (isGet())
 {
     $id     = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
 
@@ -28,12 +29,14 @@ if ($method === 'get')
         }
         else
         {
+            header('HTTP/1.1 400 Bad Request');
             $responseArray['errors'] = 'ID inexistente!';
         }
     }
     else
     {
-        $responseArray['errors']    = 'Parâmetro não enviado.';
+        header('HTTP/1.1 400 Bad Request');
+        $responseArray['errors']    = 'Parâmetro não enviado!';
     }
 }
 else

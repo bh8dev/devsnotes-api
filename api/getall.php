@@ -1,11 +1,11 @@
 <?php
 
 require '../config.php';
+require '../http.php';
 
-$method    = strtolower($_SERVER['REQUEST_METHOD']);
 $notes     = [];
 
-if ($method === 'get')
+if (isGet())
 {
     $sql    = 'SELECT * FROM notes';
     $query = $pdo->query($sql);

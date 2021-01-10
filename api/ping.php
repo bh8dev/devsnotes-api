@@ -2,7 +2,7 @@
 
 require '../config.php';
 
-$responseArray['response'] = [
+$responseArray = [
     'pong' => true
 ];
 

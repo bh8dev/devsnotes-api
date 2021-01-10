@@ -1,11 +1,11 @@
 <?php
 
 require '../config.php';
+require '../http.php';
 
-$method    = strtolower($_SERVER['REQUEST_METHOD']);
 $id    = 0;
 
-if ($method === 'post')
+if (isPost())
 {
     $title    = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
     $body     = filter_input(INPUT_POST, 'body', FILTER_SANITIZE_STRING);
@@ -28,6 +28,7 @@ if ($method === 'post')
     }
     else
     {
+        header('HTTP/1.1 400 Bad Request');
         $responseArray['errors']    = 'Campos não enviados!';
     }
 }
