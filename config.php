@@ -20,8 +20,9 @@ try
     $pdo    = new PDO("{$databaseDsn}:host={$databaseHost};dbname={$databaseName}", $databaseUser, $databasePassword, $databaseOptions);
     return $pdo;
 }
-catch (PDOException $exception)
+catch (PDOException | Exception $exception)
 {
-    throw new Exception('Database error:', $exception->getCode());
+    $responseArray['errors'] = "Database error: code {$exception->getCode()}";
+    echo json_encode($responseArray, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
     exit();
 }

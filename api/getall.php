@@ -22,6 +22,7 @@ if (isGet())
                 'body' => $note->body
             ];
         }
+        $responseArray['errors'] = 'none';
     }
 }
 else

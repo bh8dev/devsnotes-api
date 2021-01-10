@@ -7,7 +7,7 @@ $input     = [];
 
 if (isOptions())
 {
-    sendResponse(["errors" => "none"], 200);
+    sendResponse(['errors' => 'none'], 200);
 }
 
 if (isPut())
@@ -45,6 +45,7 @@ if (isPut())
                 'title' => $title,
                 'body' => $body
             ];
+            $responseArray['errors'] = 'none';
         }
         else
         {

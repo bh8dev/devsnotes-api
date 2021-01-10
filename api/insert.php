@@ -25,6 +25,7 @@ if (isPost())
             'title' => $title,
             'body' => $body
         ];
+        $responseArray['errors'] = 'none';
     }
     else
     {

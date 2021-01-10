@@ -1,31 +1,31 @@
 <?php
  
-function isMethod(string $method)
+function isMethod(string $method):bool
 {
     return strtoupper($_SERVER['REQUEST_METHOD']) === $method;
 }
  
-function isGet()
+function isGet():bool
 {
     return isMethod('GET');
 }
  
-function isPost()
+function isPost():bool
 {
     return isMethod('POST');
 }
  
-function isPut()
+function isPut():bool
 {
     return isMethod('PUT');
 }
  
-function isDelete()
+function isDelete():bool
 {
     return isMethod('DELETE');
 }
  
-function isOptions()
+function isOptions():bool
 {
     return isMethod('OPTIONS');
 }

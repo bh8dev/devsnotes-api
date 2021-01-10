@@ -26,6 +26,7 @@ if (isGet())
                 'title' => $note->title,
                 'body' => $note->body
             ];
+            $responseArray['errors'] = 'none';
         }
         else
         {
