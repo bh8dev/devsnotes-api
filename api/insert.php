@@ -30,13 +30,13 @@ if (isPost())
     else
     {
         header('HTTP/1.1 400 Bad Request');
-        $responseArray['errors']    = 'Campos não enviados!';
+        $responseArray['errors']    = 'Fields not sent!';
     }
 }
 else
 {
     header('HTTP/1.1 405 Method Not Allowed');
-    $responseArray['errors']        = 'Método não permitido! Métodos permitidos: POST';
+    $responseArray['errors']        = 'Method not allowed! Allowed methods: POST';
 }
 
 require '../includes/headers.php';

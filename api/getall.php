@@ -28,7 +28,7 @@ if (isGet())
 else
 {
     header('HTTP/1.1 405 Method Not Allowed');
-    $responseArray['errors'] = 'Método não permitido! Métodos permitidos: GET';
+    $responseArray['errors'] = 'Method not allowed! Allowed methods: GET';
 }
 
 require '../includes/headers.php';

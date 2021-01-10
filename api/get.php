@@ -3,7 +3,6 @@
 require '../config.php';
 require '../http.php';
 
-$method    = strtolower($_SERVER['REQUEST_METHOD']);
 $note      = [];
 
 if (isGet())
@@ -31,19 +30,19 @@ if (isGet())
         else
         {
             header('HTTP/1.1 400 Bad Request');
-            $responseArray['errors'] = 'ID inexistente!';
+            $responseArray['errors'] = 'Invalid ID!';
         }
     }
     else
     {
         header('HTTP/1.1 400 Bad Request');
-        $responseArray['errors']    = 'Parâmetro não enviado!';
+        $responseArray['errors']    = 'Parameter not sent!';
     }
 }
 else
 {
     header('HTTP/1.1 405 Method Not Allowed');
-    $responseArray['errors']        = 'Método não permitido! Métodos permitidos: GET';
+    $responseArray['errors']        = 'Method not allowed! Allowed methods: GET';
 }
 
 require '../includes/headers.php';
