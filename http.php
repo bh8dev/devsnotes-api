@@ -39,3 +39,8 @@ function sendResponse(array $response = [], int $statusCode = 0)
     echo json_encode($response);
     exit();
 }
+
+function setHeader(string $message = '')
+{
+    header($message);
+}

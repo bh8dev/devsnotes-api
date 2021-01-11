@@ -22,12 +22,15 @@ if (isGet())
                 'body' => $note->body
             ];
         }
-        $responseArray['errors'] = 'none';
+    }
+    else
+    {
+        $responseArray['response']    = 'There is not data to show';
     }
 }
 else
 {
-    header('HTTP/1.1 405 Method Not Allowed');
+    setHeader('HTTP/1.1 405 Method Not Allowed');
     $responseArray['errors'] = 'Method not allowed! Allowed methods: GET';
 }
 

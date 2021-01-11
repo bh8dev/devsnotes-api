@@ -7,7 +7,8 @@ $note      = [];
 
 if (isGet())
 {
-    $id     = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    $id    = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+    $id    = $id ?? 0;
 
     if ($id)
     {
@@ -25,23 +26,22 @@ if (isGet())
                 'title' => $note->title,
                 'body' => $note->body
             ];
-            $responseArray['errors'] = 'none';
         }
         else
         {
-            header('HTTP/1.1 400 Bad Request');
-            $responseArray['errors'] = 'Invalid ID!';
+            setHeader('HTTP/1.1 400 Bad Request');
+            $responseArray['errors']      = 'Invalid ID!';
         }
     }
     else
     {
-        header('HTTP/1.1 400 Bad Request');
-        $responseArray['errors']    = 'Parameter not sent!';
+        setHeader('HTTP/1.1 400 Bad Request');
+        $responseArray['errors']    = 'ID not sent!';
     }
 }
 else
 {
-    header('HTTP/1.1 405 Method Not Allowed');
+    setHeader('HTTP/1.1 405 Method Not Allowed');
     $responseArray['errors']        = 'Method not allowed! Allowed methods: GET';
 }
 

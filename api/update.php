@@ -14,7 +14,7 @@ if (isPut())
 {
     parse_str(file_get_contents('php://input'), $input);
 
-    $id       = $input['id'] ?? null;
+    $id       = $input['id'] ?? 0;
     $title    = $input['title'] ?? null;
     $body     = $input['body'] ?? null;
 
@@ -45,23 +45,22 @@ if (isPut())
                 'title' => $title,
                 'body' => $body
             ];
-            $responseArray['errors'] = 'none';
         }
         else
         {
-            header('HTTP/1.1 400 Bad Request');
-            $responseArray['errors']    = 'Invalid ID!';
+            setHeader('HTTP/1.1 400 Bad Request');
+            $responseArray['errors'] = 'Invalid ID!';
         }
     }
     else
     {
-        header('HTTP/1.1 400 Bad Request');
+        setHeader('HTTP/1.1 400 Bad Request');
         $responseArray['errors']    = 'Fields not sent!';
     }
 }
 else
 {
-    header('HTTP/1.1 405 Method Not Allowed');
+    setHeader('HTTP/1.1 405 Method Not Allowed');
     $responseArray['errors']        = 'Method not allowed! Allowed methods: PUT';
 }
 
